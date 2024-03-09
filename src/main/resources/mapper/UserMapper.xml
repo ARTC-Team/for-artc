@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.arts.work.mapper.UserMapper">
+    <select id="login" parameterType="String" resultType="com.arts.work.common.pojo.vo.UserVO">
+        select user_id,email from user_info where email=#{email}
+    </select>
+
+    <insert id="register">
+        insert into user_info (user_id,email) values(#{userId,jdbcType=VARCHAR},#{email,jdbcType=VARCHAR})
+    </insert>
+</mapper>

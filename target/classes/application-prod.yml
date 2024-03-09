@@ -1,0 +1,22 @@
+server:
+  tomcat:
+    uri-encoding: UTF-8
+    max-threads: 1000
+    min-spare-threads: 30
+  port: 8083
+  connection-timeout: 50000ms
+
+# 环境 dev|uat|prod
+spring:
+  config:
+    activate:
+      on-profile: prod
+      main:
+        allow-bean-definition-overriding:
+
+mybatis:
+  #导入映射文件
+  mapper-locations: classpath:/mapper/*.xml
+  #开启驼峰映射
+  configuration:
+    map-underscore-to-camel-case: true

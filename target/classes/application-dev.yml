@@ -1,0 +1,34 @@
+server:
+  tomcat:
+    uri-encoding: UTF-8
+    max-threads: 1000
+    min-spare-threads: 30
+  port: 8081
+  connection-timeout: 50000ms
+
+# 环境 dev|uat|prod
+spring:
+  config:
+    activate:
+      on-profile: dev
+      main:
+        allow-bean-definition-overriding: true
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/arts?&useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+    username: root
+    password: 123456
+
+mybatis:
+  #导入映射文件
+  mapper-locations: classpath:/mapper/*.xml
+  #开启驼峰映射
+  configuration:
+    map-underscore-to-camel-case: true
+
+redis:
+  host: localhost
+  port: 6379
+
+
+
